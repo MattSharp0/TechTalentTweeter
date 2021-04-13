@@ -15,6 +15,7 @@
 					style="pointer-events: none; color: #00aced"> @<span
 						sec:authentication="name"></span></a>
 				<li sec:authorize="isAuthenticated()"><a href="../logout">Logout</a></li>
+				<li sec:authorize="!isAuthenticated()"><a href="../signup">Sign Up</a></li>
 				<li sec:authorize="!isAuthenticated()"><a href="../login">Login</a></li>
 			</ul>
 		</div>
