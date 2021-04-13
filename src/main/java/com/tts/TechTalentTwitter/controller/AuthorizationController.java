@@ -41,7 +41,7 @@ public class AuthorizationController {
             model.addAttribute("success", "Sign up successful!");
             model.addAttribute("user", new User());
         }
-        return "registration";
+        return "login";
     }
 
 }
