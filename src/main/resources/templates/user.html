@@ -2,20 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-<head>
+<head th:replace="fragments/head">
 <title>User</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-<link rel="stylesheet" href="/custom.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/custom.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -46,8 +34,8 @@
 				<div class="d-flex w-100 justify-content-between">
 					<h5>
 						<a class="username" th:href="@{/users/} + ${tweet.user.username}">@<span
-					th:text="${tweet.user.username}"></span></a>
-						<small th:text="${tweet.date}"></small>
+							th:text="${tweet.user.username}"></span></a> <small
+							th:text="${tweet.date}"></small>
 					</h5>
 				</div>
 				<p class="mb-1" th:utext="${tweet.message}"></p>

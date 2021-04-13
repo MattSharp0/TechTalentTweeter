@@ -70,6 +70,6 @@ public class TweetController {
             model.addAttribute("successMessage", "Tweet successfully created!");
             model.addAttribute("tweet", new Tweet());
         }
-        return "newTweet";
+        return "feed";
     }
 }
