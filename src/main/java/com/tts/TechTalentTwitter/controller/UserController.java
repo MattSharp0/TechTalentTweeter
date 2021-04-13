@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tts.TechTalentTwitter.model.Tweet;
@@ -38,10 +39,10 @@ public class UserController {
 			}
 		}
 		boolean isSelfPage = loggedInUser.getUsername().equals(username);
+		model.addAttribute("isSelfPage", isSelfPage);
+		model.addAttribute("following", isFollowing);
 		model.addAttribute("tweetList", tweets);
 		model.addAttribute("user", user);
-		model.addAttribute("following", isFollowing);
-		model.addAttribute("isSelfPage", isSelfPage);
 		return "user";
 	}
 
