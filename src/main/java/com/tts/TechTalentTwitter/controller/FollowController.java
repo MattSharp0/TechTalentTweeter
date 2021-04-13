@@ -19,7 +19,7 @@ public class FollowController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping(value = "/follow/[username]")
+	@PostMapping(value = "/follow/{username}")
 	public String follow(@PathVariable(value="username")String userName, HttpServletRequest request) {
 		User loggedInUser = userService.getLoggedInUser();
 		User userToFollow = userService.findByUsername(userName);
@@ -27,6 +27,17 @@ public class FollowController {
 		followers.add(loggedInUser);
 		userToFollow.setFollowers(followers);
 		userService.save(userToFollow);
+		return"redirect:" + request.getHeader("Referer");
+	}
+	
+	@PostMapping(value = "/unfollow/{username}")
+	public String unfollow(@PathVariable(value="username")String userName, HttpServletRequest request) {
+		User loggedInUser = userService.getLoggedInUser();
+		User userToUnFollow = userService.findByUsername(userName);
+		List<User> followers = userToUnFollow.getFollowers();
+		followers.remove(loggedInUser);
+		userToUnFollow.setFollowers(followers);
+		userService.save(userToUnFollow);
 		return"redirect:" + request.getHeader("Referer");
 	}
 	
