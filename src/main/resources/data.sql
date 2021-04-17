@@ -1,1 +1,2 @@
+INSERT INTO 'role' (role) VALUES ('USER')
 MERGE INTO `role` VALUES (1,'USER');

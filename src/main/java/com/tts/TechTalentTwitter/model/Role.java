@@ -23,6 +23,4 @@ public class Role {
     private Long id;
     private String role;
     
-    @Builder.Default
-    Role USER = new Role();
 }
