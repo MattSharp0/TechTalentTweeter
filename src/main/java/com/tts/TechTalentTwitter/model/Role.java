@@ -22,4 +22,7 @@ public class Role {
     @Column(name = "role_id")
     private Long id;
     private String role;
+    
+    @Builder.Default
+    Role USER = new Role();
 }
